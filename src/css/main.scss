@@ -12,7 +12,9 @@ img {
 /* переменные*/
 :root {
 }
-
+.block {
+   background-image: url('../img/bg-full.png');
+}
 
 /*Media*/
 @media  screen and (max-width: 1250px) {

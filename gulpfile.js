@@ -18,6 +18,8 @@ const ttf2woff2 = require('gulp-ttf2woff2');
 const version = require('gulp-version-number')
 const groupMedia = require('gulp-group-css-media-queries')
 //const webpcss = require('gulp-webpcss')
+const fs = require('fs')
+const fonter = require('gulp-fonter') 
 
 const paths = {
     styles: {
@@ -57,8 +59,28 @@ function stream() {
 }
 /*шрифты - пока только перенос в distr/font*/
 function fonts() {
+    otfToWoffWoff2()
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.dest))
+}
+/*Преобразование шрифта otf в woff*/
+function otfToWoffWoff2() {
+    return gulp.src('src/font/**/*.otf')
+        /*конвертация  otf в ttf */
+        .pipe(fonter({
+            formats: ['ttf']
+        }))
+        .pipe(gulp.dest('src/font/'))
+        /*конвертация  ttf в woff */
+        .pipe(gulp.src('src/font/*.ttf'))
+        .pipe(fonter({
+            formats: ['woff']
+        }))
+        .pipe(gulp.dest('dist/font/'))
+        /*конвертируем ttf в woff2*/
+        .pipe(gulp.src('src/font/*.ttf'))
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest('dist/font/'))
 }
 /*видео - пока только перенос в distr/video*/
 function video() {
