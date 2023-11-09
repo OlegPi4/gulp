@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+} 
+*, *::before, *::after {
+   box-sizing: inherit;
+}
+img {
+   display: block;
+   max-width: 100%;
+}
+
+/* переменные*/
+:root {
+}
+
+
+/*Media*/
+@media  screen and (max-width: 1250px) {
+}
+@media  screen and (max-width: 1050px) {
+}
+@media  screen and (max-width: 850px) {
+} 
+@media  screen and (max-width: 680px) {
+}
+@media  screen and (max-width: 560px) {
+}
+@media  screen and (max-width: 475px) {
+} 
+@media  screen and (max-width: 380px) {
+}

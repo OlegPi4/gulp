@@ -1,0 +1,5 @@
+/dist
+/node_modules
+/gulp
+package-lock.json
+*.png

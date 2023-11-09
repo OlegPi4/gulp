@@ -1,0 +1,199 @@
+:root {
+    --gatter: 15px;
+    --gatter-lg: 15px;
+    --gatter-md: 15px;
+    --gatter-sm: 15px;
+    --gatter-usm: 15px;
+}
+
+/* экран - HD */
+.col-1 {
+    width: calc(8.33% - var(--gatter));
+}
+.col-2 {
+    width: calc(16.67% - var(--gatter));
+}
+.col-3 {
+    width: calc(25% - var(--gatter));
+}
+.col-4 {
+    width: calc(33.33% - var(--gatter));
+}
+.col-5 {
+    width: calc(41.67% - var(--gatter));
+}
+.col-6 {
+    width: calc(50% - var(--gatter));
+}
+.col-7 {
+    width: calc(58.33% - var(--gatter));
+}
+.col-8 {
+    width: calc(66.67% - var(--gatter));
+}
+.col-9 {
+    width: calc(75% - var(--gatter));
+}
+.col-10 {
+    width: calc(83.33% - var(--gatter));
+}
+.col-11 {
+    width: calc(91.67% - var(--gatter));
+}
+.col-12 {
+    width: calc(100% - var(--gatter));
+}
+
+@media screen and (max-width: 992px) {
+    
+    .col-lg-1 {
+        width: calc(8.33% - var(--gatter-lg));
+    }
+    .col-lg-2 {
+        width: calc(16.67% - var(--gatter-lg));
+    }
+    .col-lg-3 {
+        width: calc(25% - var(--gatter-lg));
+    }
+    .col-lg-4 {
+        width: calc(33.33% - var(--gatter-lg));
+    }
+    .col-lg-5 {
+        width: calc(41.67% - var(--gatter-lg));
+    }
+    .col-lg-6 {
+        width: calc(50% - var(--gatter-lg));
+    }
+    .col-lg-7 {
+        width: calc(58.33% - var(--gatter-lg));
+    }
+    .col-lg-8 {
+        width: calc(66.67% - var(--gatter-lg));
+    }
+    .col-lg-9 {
+        width: calc(75% - var(--gatter-lg));
+    }
+    .col-lg-10 {
+        width: calc(83.33% - var(--gatter-lg));
+    }
+    .col-lg-11 {
+        width: calc(91.67% - var(--gatter-lg));
+    }
+    .col-lg-12 {
+        width: calc(100% - var(--gatter-lg));
+    }
+}
+@media screen and (max-width: 768px) {
+    .col-md-1 {
+        width: calc(8.33% - var(--gatter-md));
+    }
+    .col-md-2 {
+        width: calc(16.67% - var(--gatter-md));
+    }
+    .col-md-3 {
+        width: calc(25% - var(--gatter-md));
+    }
+    .col-md-4 {
+        width: calc(33.33% - var(--gatter-md));
+    }
+    .col-md-5 {
+        width: calc(41.67% - var(--gatter-md));
+    }
+    .col-md-6 {
+        width: calc(50% - var(--gatter-md));
+    }
+    .col-md-7 {
+        width: calc(58.33% - var(--gatter-md));
+    }
+    .col-md-8 {
+        width: calc(66.67% - var(--gatter-md));
+    }
+    .col-md-9 {
+        width: calc(75% - var(--gatter-md));
+    }
+    .col-md-10 {
+        width: calc(83.33% - var(--gatter-md));
+    }
+    .col-md-11 {
+        width: calc(91.67% - var(--gatter-md));
+    }
+    .col-md-12 {
+        width: calc(100% - var(--gatter-md));
+    }
+}
+@media screen and (max-width: 576px) {
+    .col-sm-1 {
+        width: calc(8.33% - var(--gatter-sm));
+    }
+    .col-sm-2 {
+        width: calc(16.67% - var(--gatter-sm));
+    }
+    .col-sm-3 {
+        width: calc(25% - var(--gatter-sm));
+    }
+    .col-sm-4 {
+        width: calc(33.33% - var(--gatter-sm));
+    }
+    .col-sm-5 {
+        width: calc(41.67% - var(--gatter-sm));
+    }
+    .col-sm-6 {
+        width: calc(50% - var(--gatter-sm));
+    }
+    .col-sm-7 {
+        width: calc(58.33% - var(--gatter-sm));
+    }
+    .col-sm-8 {
+        width: calc(66.67% - var(--gatter-sm));
+    }
+    .col-sm-9 {
+        width: calc(75% - var(--gatter-sm));
+    }
+    .col-sm-10 {
+        width: calc(83.33% - var(--gatter-sm));
+    }
+    .col-sm-11 {
+        width: calc(91.67% - var(--gatter-sm));
+    }
+    .col-sm-12 {
+        width: calc(100% - var(--gatter-sm));
+    }
+}
+@media screen and (max-width: 440px) {
+    .col-usm-1 {
+        width: calc(8.33% - var(--gatter-usm));
+    }
+    .col-usm-2 {
+        width: calc(16.67% - var(--gatter-usm));
+    }
+    .col-usm-3 {
+        width: calc(25% - var(--gatter-usm));
+    }
+    .col-usm-4 {
+        width: calc(33.33% - var(--gatter-usm));
+    }
+    .col-usm-5 {
+        width: calc(41.67% - var(--gatter-usm));
+    }
+    .col-usm-6 {
+        width: calc(50% - var(--gatter-usm));
+    }
+    .col-usm-7 {
+        width: calc(58.33% - var(--gatter-usm));
+    }
+    .col-usm-8 {
+        width: calc(66.67% - var(--gatter-usm));
+    }
+    .col-usm-9 {
+        width: calc(75% - var(--gatter-usm));
+    }
+    .col-usm-10 {
+        width: calc(83.33% - var(--gatter-usm));
+    }
+    .col-usm-11 {
+        width: calc(91.67% - var(--gatter-usm));
+    }
+    .col-usm-12 {
+        width: calc(100% - var(--gatter-usm));
+    }
+}
