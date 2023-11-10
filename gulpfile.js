@@ -20,6 +20,7 @@ const groupMedia = require('gulp-group-css-media-queries')
 //const webpcss = require('gulp-webpcss')
 const fs = require('fs')
 const fonter = require('gulp-fonter') 
+//const webp = require('gulp-webp')
 
 const paths = {
     styles: {
@@ -31,8 +32,12 @@ const paths = {
         dest: 'dist/js'
     },
     images: {
-        src: 'src/img/**',
-        dest: 'dist/img'
+        src: 'src/img/**/*.{jpg,jpeg,png,gif,webp}',
+        dest: 'dist/img',
+    },
+    svg: {
+        src: 'src/img/**/*.svg',
+        dest: 'dist/img',
     },
     htmls: {
         src: 'src/*.html',
@@ -52,32 +57,37 @@ function clean() {
     return del(['dist/*', '!dist/img'])
 }
 /*Запуск сервера - не работает*/
-function stream() {
-    return gulp.src(paths.fonts.src)
-    .pipe(gulp.dest(paths.fonts.dest))
-    .pipe(browsersync.stream())
-}
-/*шрифты - пока только перенос в distr/font*/
+// function stream() {
+//     return gulp.src(paths.fonts.src)
+//     .pipe(gulp.dest(paths.fonts.dest))
+//     .pipe(browsersync.stream())
+// }
+/*шрифты -  преобразование в ttf. woff. woff2  перенос  в distr/font*/
 function fonts() {
-    otfToWoffWoff2()
+    otfToTtf()
+    ttfToWoff()
     return gulp.src(paths.fonts.src)
         .pipe(gulp.dest(paths.fonts.dest))
 }
-/*Преобразование шрифта otf в woff*/
-function otfToWoffWoff2() {
+/*Преобразование шрифта otf в ttf*/
+function otfToTtf() {
     return gulp.src('src/font/**/*.otf')
         /*конвертация  otf в ttf */
         .pipe(fonter({
             formats: ['ttf']
         }))
         .pipe(gulp.dest('src/font/'))
-        /*конвертация  ttf в woff */
-        .pipe(gulp.src('src/font/*.ttf'))
+    }        
+
+/*Преобразование шрифта ttf в woff/woff2*/
+function ttfToWoff() {
+    return gulp.src('src/font/*.ttf')
+        /*конвертация  в woff */
         .pipe(fonter({
             formats: ['woff']
         }))
         .pipe(gulp.dest('dist/font/'))
-        /*конвертируем ttf в woff2*/
+         /*конвертация  в woff2 */
         .pipe(gulp.src('src/font/*.ttf'))
         .pipe(ttf2woff2())
         .pipe(gulp.dest('dist/font/'))
@@ -130,17 +140,25 @@ function scripts() {
     }))
     .pipe(gulp.dest(paths.scripts.dest))
 }
-/*сжатие изображений*/
+/*сжатие изображений, cgg - без сжатия*/
 function img() {
     return gulp.src(paths.images.src)
     .pipe(newer(paths.images.dest))
+    //.pipe(webp())
+    //.pipe(gulp.dest(paths.images.dest))
+    //.pipe(gulp.src(paths.images.src))
+    //.pipe(newer(paths.images.dest))
     .pipe(imagemin({
         progressive: true,
-        optimizationLevel: 5,
+        svgoPligins: [{ removeViewBox: false}],
+        interlaced: true,
+        optimizationLevel: 3,
     }))
+    .pipe(gulp.dest(paths.images.dest))
     .pipe(size({
         showFiles: true,
     }))
+    .pipe(gulp.src(paths.svg.src))
     .pipe(gulp.dest(paths.images.dest))
 }  
 /*Минимизация Html*/
@@ -179,9 +197,9 @@ function watch() {
     gulp.watch(paths.video.src, video)
 }
 /*запуск сценария действий*/
-const build = gulp.series(clean, html, gulp.parallel(styles, scripts, img, fonts, video), gulp.parallel(watch, stream))
+const build = gulp.series(clean, fonts, html, gulp.parallel(styles, scripts, img, video), watch)
 
-exports.stream = stream
+//exports.stream = stream
 exports.fonts = fonts
 exports.video = video
 exports.clean = clean
